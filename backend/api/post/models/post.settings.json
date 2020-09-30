@@ -10,7 +10,8 @@
   },
   "attributes": {
     "post_title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "post_lead": {
       "type": "text"
@@ -27,17 +28,21 @@
       "required": false
     },
     "post_content": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "post_published": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "post_author": {
       "plugin": "users-permissions",
       "model": "user"
     },
     "post_slug": {
-      "type": "string"
+      "type": "uid",
+      "targetField": "post_title",
+      "required": true
     }
   }
 }
