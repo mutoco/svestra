@@ -74,6 +74,10 @@ object {
 	opacity: 0;
 }
 
+img, video {
+	max-width: 100%;
+}
+
 ::selection {
 	background: $c-green;
 	color: $c-light;
