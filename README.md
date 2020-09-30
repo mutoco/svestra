@@ -24,20 +24,20 @@ The frontend is built with Sapper. This sets up your frontend.
 ```bash
 cd frontend
 
-yarn install
+npm install
 ```
 
-Then run `yarn dev` to start your frontend server.
+Then run `npm dev` to start your frontend server.
 
 ### Backend
 The backend is built with Strapi. This sets up your backend.
 ```bash
 cd backend
 
-yarn install
+npm install
 ```
 
-Then run `yarn develop` to start your backend server.
+Then run `npm develop` to start your backend server.
 
 
 ## Deployment 
