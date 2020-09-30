@@ -35,7 +35,6 @@ body {
 	min-height: 100%;
 	padding: 0;
 	margin: 0;
-	background: red;
 }
 
 body {
@@ -43,6 +42,7 @@ body {
 	line-height: $base-line-height;
 	color: $c_dark;
 	background: $c_light;
+	background: red;
 	font-family: $base-font-family, serif;
 	position: relative;
 	-webkit-tap-highlight-color:  rgba(0, 0, 0, 0);

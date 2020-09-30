@@ -46,6 +46,7 @@ module.exports = {
 				'process.browser': true,
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
+			dev && new webpack.HotModuleReplacementPlugin()
 		].filter(Boolean),
 		devtool: dev && 'inline-source-map'
 	},
