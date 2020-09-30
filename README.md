@@ -27,7 +27,7 @@ cd frontend
 npm install
 ```
 
-Then run `npm dev` to start your frontend server.
+Then run `npm run dev` to start your frontend server.
 
 ### Backend
 The backend is built with Strapi. This sets up your backend.
@@ -37,7 +37,7 @@ cd backend
 npm install
 ```
 
-Then run `npm develop` to start your backend server.
+Then run `npm run develop` to start your backend server.
 
 
 ## Deployment 
