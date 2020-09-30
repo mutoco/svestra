@@ -1,0 +1,11 @@
+@mixin touch {
+	@media (-moz-touch-enabled: 1), (pointer: coarse) {
+		@content;
+	}
+}
+
+@mixin no-touch {
+	@media (-moz-touch-enabled: 0), (pointer: fine), (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		@content;
+	}
+}

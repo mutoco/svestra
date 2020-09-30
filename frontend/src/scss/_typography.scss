@@ -1,0 +1,33 @@
+@import "variables";
+@import "mixins";
+
+a {
+	color: $c-dark;
+	display: inline-block;
+	cursor: pointer;
+
+	text-decoration: underline;
+	text-decoration-color: $c-dark;
+	text-underline-position: below;
+}
+
+strong, b, h1, h2, h3, h4, h5, h6 {
+	font-weight: 600;
+}
+
+em, i {
+	font-style: normal;
+}
+
+img {
+	outline: 0;
+	border: 0;
+}
+
+p {
+	margin: 1.2em 0;
+
+	&:first-child {
+		margin-top: 0;
+	}
+}

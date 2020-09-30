@@ -4,8 +4,10 @@ A Svelte/Sapper + Strapi boilerplate with some neat features, helpers and more.
 ## Features
 - Page prefetching
 - GraphQL first approach
-- Todo: SASS
+- SASS Support + some helpers & mixins
 - Todo: Typescript
+- Todo: SVG helpers
+- Todo: `srcset` helpers
 
 ## Pages
 - A home page :`/`
@@ -35,7 +37,7 @@ cd backend
 yarn install
 ```
 
-Then run `yarn dev` or `strapi dev` to start your backend server.
+Then run `yarn develop` to start your backend server.
 
 
 ## Deployment 

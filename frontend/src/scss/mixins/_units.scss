@@ -1,0 +1,56 @@
+@import "../variables";
+
+//---------------------------------------------------------------------------------------------------------------------
+// Mixins
+//---------------------------------------------------------------------------------------------------------------------
+
+@function strip-units($number) {
+	@return $number / ($number * 0 + 1);
+}
+
+@function rem($size){
+	@return strip-units($size) / strip-units($em-base) * 1rem;
+}
+
+@function rvw($size, $vw: $viewport-width) {
+	@return 100vw / $vw * strip-units($size);
+}
+
+@function rvh($size, $vh: $viewport-height) {
+	@return 100vh / $vh * strip-units($size);
+}
+
+@function sizeRelativeToWidth($view-width) {
+	@return 100vw / $view-width * strip-units($em-base);
+}
+
+@function sizeRelativeToHeight($view-height) {
+	@return 100vh / $view-height * strip-units($em-base);
+}
+
+@function perc($v, $base) {
+	@return (100% / $base * $v);
+}
+
+@function sqrt($r) {
+	$x0: 1;
+	$x1: $x0;
+
+	@for $i from 1 through 10 {
+		$x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+		$x0: $x1;
+	}
+
+	@return $x1;
+}
+
+@mixin fullwidth() {
+	width: 100%;
+	max-width: 100vh / $viewport-height * $viewport-width;
+	margin: 0 auto;
+	padding: 0;
+}
+
+@function cols($spans, $total: 16) {
+	@return 100vw / $total * $spans;
+}
