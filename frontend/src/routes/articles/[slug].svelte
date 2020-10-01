@@ -2,15 +2,15 @@
     import ApolloClient, { gql } from 'apollo-boost';  
     
     const blogQuery = gql`
-    query Posts($post_slug: String!) {
-        posts: posts(where: { post_slug: $post_slug }) {
+    query Posts($slug: String!) {
+        posts: posts(where: { slug: $slug }) {
             id
-            post_title
-            post_published
-            post_slug
-            post_lead
-            post_content
-            post_author {
+            title
+            published
+            slug
+            lead
+            content
+            author {
                 username
             }
         }
@@ -18,12 +18,12 @@
     `;
     export async function preload({params, query}) {
         const client = new ApolloClient({ 
-            uri: 'http://localhost:1337/graphql',
+            uri: `${process.env.STRAPI_API_URL}/graphql`,
             fetch: this.fetch
         });
         const results = await client.query({
             query: blogQuery,
-            variables: {"post_slug" : params.slug} 
+            variables: {"slug" : params.slug} 
         })
         return {post: results.data.posts}
     }
@@ -62,11 +62,11 @@
 </svelte:head>
 
 {#each post as post}
-<h2>{post.post_title}</h2>
-<h3>{post.post_published} by {post.post_author.username}</h3>
+<h2>{post.title}</h2>
+<h3>{post.published} by {post.author.username}</h3>
 
 <div class='content'>
-    {@html post.post_content} </div>
+    {@html post.content} </div>
     {/each}
     
     <p>⇺<a href="articles"> back to articles</a></p>

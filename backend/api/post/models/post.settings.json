@@ -9,14 +9,14 @@
     "timestamps": true
   },
   "attributes": {
-    "post_title": {
+    "title": {
       "type": "string",
       "required": true
     },
-    "post_lead": {
+    "lead": {
       "type": "text"
     },
-    "post_media": {
+    "media": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -27,21 +27,28 @@
       "plugin": "upload",
       "required": false
     },
-    "post_content": {
+    "content": {
       "type": "richtext",
       "required": true
     },
-    "post_published": {
+    "published": {
       "type": "date",
       "required": true
     },
-    "post_author": {
+    "author": {
       "plugin": "users-permissions",
       "model": "user"
     },
-    "post_slug": {
+    "slug": {
       "type": "uid",
-      "targetField": "post_title",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "draft",
+        "published"
+      ],
       "required": true
     }
   }

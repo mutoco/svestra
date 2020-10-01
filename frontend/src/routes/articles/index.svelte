@@ -1,21 +1,19 @@
 <script context="module">
     import ApolloClient, { gql } from 'apollo-boost';  
-
-    let api_url = process.env.STRAPI_API_URL;
     
     const blogQuery = gql`
     query Posts {  
         posts {
             id
-            post_title
-            post_published
-            post_slug
-            post_lead
-          	post_media {
+            title
+            published
+            slug
+            lead
+          	media {
               url
             }
-            post_content
-            post_author {
+            content
+            author {
                 username
             }
         }
@@ -23,7 +21,7 @@
     `;
     export async function preload({params, query}) {
         const client = new ApolloClient({ 
-            uri: 'http://localhost:1337/graphql',
+            uri: `${process.env.STRAPI_API_URL}/graphql`,
                 fetch: this.fetch
             });
             const results = await client.query({
@@ -59,14 +57,14 @@
 <ul>
     {#each posts as post}
     <li>
-        <a class="main-title" rel='prefetch' href='articles/{post.post_slug}'>
-            {post.post_title}
+        <a class="main-title" rel='prefetch' href='articles/{post.slug}'>
+            {post.title}
             <!-- {process.env.BACKEND_URL} -->
-            <img src="{api_url}{post.post_media.url}" alt="{post.post_title}">
+            <img src="{process.env.STRAPI_API_URL}{post.media.url}" alt="{post.title}">
         </a>
     </li>
     <p> 
-        {post.post_published} by {post.post_author.username} 
+        {post.published} by {post.author.username} 
     </p>
     {/each}
 </ul>
