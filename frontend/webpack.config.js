@@ -15,7 +15,8 @@ const mainFields = ['svelte', 'module', 'browser', 'main'];
 const preprocess = sveltePreprocess({
 	scss: {
 		includePaths: ['src/scss']
-	}
+	},
+	postcss: true
 });
 
 module.exports = {
