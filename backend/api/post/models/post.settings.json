@@ -2,11 +2,13 @@
   "kind": "collectionType",
   "collectionName": "posts",
   "info": {
-    "name": "Post"
+    "name": "Post",
+    "description": ""
   },
   "options": {
     "increments": true,
-    "timestamps": true
+    "timestamps": true,
+    "draftAndPublish": true
   },
   "attributes": {
     "title": {
@@ -29,11 +31,7 @@
     },
     "content": {
       "type": "richtext",
-      "required": true
-    },
-    "published": {
-      "type": "date",
-      "required": true
+      "required": false
     },
     "author": {
       "plugin": "users-permissions",
@@ -41,15 +39,14 @@
     },
     "slug": {
       "type": "uid",
-      "required": true
+      "required": true,
+      "targetField": "title"
     },
-    "status": {
-      "type": "enumeration",
-      "enum": [
-        "draft",
-        "published"
-      ],
-      "required": true
+    "Components": {
+      "type": "dynamiczone",
+      "components": [
+        "teaser.teaser-media"
+      ]
     }
   }
 }

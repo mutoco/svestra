@@ -1,15 +1,25 @@
 import ApolloClient, {gql} from 'apollo-boost';
 import fetch from 'node-fetch';
 
-// Query all blog-posts
+// Query all blog-posts (preview mode showing drafts. LIVE is for production)
 const GET_BLOGPOSTS = gql`
 query Posts {  
-  posts {
+  posts (publicationState: PREVIEW) {
     id
     title
-    published
+    published_at
     slug
     lead
+    Components {
+      __typename
+        ... on ComponentTeaserTeaserMedia {
+          id
+          Title
+        	Media {url}
+          Lead
+          Label
+        }
+    }
     media {
       url
     }
@@ -27,7 +37,7 @@ query Posts($slug: String!) {
   posts: posts(where: { slug: $slug }) {
     id
     title
-    published
+    published_at
     slug
     lead
     content
