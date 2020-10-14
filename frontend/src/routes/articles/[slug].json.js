@@ -9,16 +9,16 @@ const GET_BLOGPOST = process.env.STRAPI_API_URL+'/posts?slug=$slug';
 export async function get(req, res) {
   const {slug} = req.params;
   try {
-    const results = await fetch(slug === 'index' ? GET_BLOGPOSTS : GET_BLOGPOST);
+    const response = await fetch(slug === 'index' ? GET_BLOGPOSTS : GET_BLOGPOST);
+    const posts = await response.json();
 
     res.writeHead(200, {
       'Content-Type': 'application/json'
     });
-    
-    res.end(JSON.stringify({posts: results.data.posts}));
+
+    res.end(JSON.stringify({posts}));
   }
   catch (e) {
-    
     res.writeHead(500, {
       'Content-Type': 'application/json'
     });
