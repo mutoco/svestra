@@ -3,7 +3,7 @@
   "collectionName": "tokens",
   "info": {
     "name": "token",
-    "description": ""
+    "description": "Tokens to access the Strapi Content API"
   },
   "options": {
     "increments": true,
@@ -11,8 +11,13 @@
     "draftAndPublish": false
   },
   "attributes": {
-    "token": {
+    "name": {
       "type": "string"
+    },
+    "token": {
+      "type": "string",
+      "unique": true,
+      "required": false
     },
     "user": {
       "plugin": "users-permissions",
