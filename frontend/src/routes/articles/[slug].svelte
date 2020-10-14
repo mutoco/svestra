@@ -56,8 +56,10 @@
 
         if (res.status === 200) {
             return data;
-        } else if (res.status === 403) {
-          this.redirect(403, '/login');
+        } else if (res.status === 401) {
+            const params = new URLSearchParams();
+            params.set('redirect', path);
+            this.redirect(302, `/login?${params.toString()}`);
         } else {
             this.error(res.status, data.message);
         }

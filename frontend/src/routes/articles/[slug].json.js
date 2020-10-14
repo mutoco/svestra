@@ -2,24 +2,29 @@ import fetch from 'node-fetch';
 
 const STAGE = process.env.SAPPER_MODE === 'export' ? 'live' : 'preview';
 
-// Query all blog-posts (preview mode showing drafts. LIVE is for production)
-const GET_BLOGPOSTS = `${process.env.STRAPI_API_URL}/posts?_publicationState=${STAGE}`;
 
 export async function get(req, res) {
-  if (STAGE === 'preview' && !(req.session && req.session.token) ) {
-    res.writeHead(403, {
-      'Content-Type': 'application/json'
-    });
-    res.end(JSON.stringify({error: 'Not logged in'}));
-    return;
+  const backendUrl = new URL(`${process.env.STRAPI_API_URL}/posts`);
+  backendUrl.searchParams.set('_publicationState', STAGE);
+
+  if (STAGE === 'live') {
+    backendUrl.searchParams.set('token', process.env.EXPORT_API_TOKEN);
   }
 
   const {slug} = req.params;
   try {
-    const response = await fetch(slug === 'index' ? GET_BLOGPOSTS : `${GET_BLOGPOSTS}&slug=${slug}`);
+    if (slug !== 'index') {
+      backendUrl.searchParams.set('slug', slug);
+    }
+    const headers = new fetch.Headers();
+
+    if (STAGE !== 'live' && req.session) {
+      headers.append('Authorization', `Bearer ${req.session.token}`);
+    }
+    const response = await fetch(backendUrl, {headers});
     const posts = await response.json();
 
-    res.writeHead(200, {
+    res.writeHead(response.ok ? 200 : response.status, {
       'Content-Type': 'application/json'
     });
 
@@ -33,6 +38,5 @@ export async function get(req, res) {
     res.end(JSON.stringify({
       message: e.message
     }));
-
   }
 }

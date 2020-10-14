@@ -1,5 +1,5 @@
 <script>
-  import { goto, stores } from "@sapper/app";
+  import { goto, stores } from '@sapper/app';
   const { session } = stores();
 
   let password = "";
@@ -7,11 +7,11 @@
   let error;
 
   const handleLogin = async () => {
-    const response = await fetch("/login", {
-      method: "POST",
+    const response = await fetch('/login', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
       },
       body: JSON.stringify({ email, password }),
     });
@@ -22,11 +22,12 @@
       error = parsed.error;
     } else {
       $session.token = parsed.token;
-      await goto("/");
+      const params = new URLSearchParams(window.location.search);
+      await goto(params.has('redirect') ? params.get('redirect') : '/');
     }
   };
 </script>
-<h1>Login with your Strapi CMS credentials</h1>
+<h1>Login with your Strapi API credentials</h1>
 <form on:submit|preventDefault="{handleLogin}" method="post">
   <label>
     Email:
