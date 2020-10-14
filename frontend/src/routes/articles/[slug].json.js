@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 
-const STAGE = process.env.MODE === 'export' ? 'live' : 'preview';
+const STAGE = process.env.SAPPER_MODE === 'export' ? 'live' : 'preview';
 
 // Query all blog-posts (preview mode showing drafts. LIVE is for production)
 const GET_BLOGPOSTS = `${process.env.STRAPI_API_URL}/posts?_publicationState=${STAGE}`;
