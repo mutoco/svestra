@@ -3,12 +3,6 @@
   "description": "A Svelte/Sapper + Strapi boilerplate with some neat features, helpers and more.",
   "version": "0.0.1",
   "scripts": {
-    "dev": "sapper dev",
-    "build": "sapper build",
-    "export": "sapper export",
-    "dev": "MODE=dev sapper dev",
-    "build": "MODE=build sapper build",
-    "export": "MODE=export sapper export",
     "dev": "SAPPER_MODE=dev sapper dev",
     "build": "SAPPER_MODE=build sapper build",
     "export": "SAPPER_MODE=export sapper export",
@@ -16,11 +10,14 @@
   },
   "dependencies": {
     "apollo-boost": "^0.4.9",
+    "body-parser": "^1.19.0",
     "compression": "^1.7.1",
+    "express-session": "^1.17.1",
     "graphql": "^15.3.0",
     "node-fetch": "^2.6.1",
     "normalize.scss": "^0.1.0",
     "polka": "next",
+    "session-file-store": "^1.5.0",
     "sirv": "^1.0.0",
     "svelte-apollo": "^0.3.0"
   },

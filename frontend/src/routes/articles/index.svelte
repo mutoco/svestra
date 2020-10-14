@@ -1,5 +1,5 @@
 <script>
-    export let posts;
+    export let posts = [];
 </script>
 
 <style>
@@ -47,6 +47,8 @@
 
         if (res.status === 200) {
             return data;
+        } else if (res.status === 403) {
+            this.redirect(403, '/login');
         } else {
             this.error(res.status, data.message);
         }
