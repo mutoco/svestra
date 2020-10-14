@@ -39,6 +39,9 @@
   {#if post.author}
     <h3>{post.published} by {post.author.username}</h3>
   {/if}
+  {#if post.media}
+    <img src="{process.env.STRAPI_API_URL}{post.media.url}" alt="{post.title}">
+  {/if}
   <div class='content'>
     {@html post.content}
   </div>

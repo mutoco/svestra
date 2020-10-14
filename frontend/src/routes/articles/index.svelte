@@ -27,7 +27,9 @@
             <a class="main-title" rel='prefetch' href='articles/{post.slug}'>
                 {post.title}
                 <!-- {process.env.BACKEND_URL} -->
-                <img src="{process.env.STRAPI_API_URL}{post.media.url}" alt="{post.title}">
+                {#if post.media}
+                    <img src="{process.env.STRAPI_API_URL}{post.media.url}" alt="{post.title}">
+                {/if}
             </a>
         </li>
         {#if post.author}
