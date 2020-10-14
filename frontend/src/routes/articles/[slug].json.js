@@ -1,15 +1,14 @@
 import fetch from 'node-fetch';
 
-// Query all blog-posts (preview mode showing drafts. LIVE is for production)
-const GET_BLOGPOSTS = process.env.STRAPI_API_URL+'/posts?_publicationState=preview';
+const STAGE = process.env.MODE === 'export' ? 'live' : 'preview';
 
-// Query a single blog post
-const GET_BLOGPOST = process.env.STRAPI_API_URL+'/posts?slug=$slug';
+// Query all blog-posts (preview mode showing drafts. LIVE is for production)
+const GET_BLOGPOSTS = `${process.env.STRAPI_API_URL}/posts?_publicationState=${STAGE}`;
 
 export async function get(req, res) {
   const {slug} = req.params;
   try {
-    const response = await fetch(slug === 'index' ? GET_BLOGPOSTS : GET_BLOGPOST);
+    const response = await fetch(slug === 'index' ? GET_BLOGPOSTS : `${GET_BLOGPOSTS}&slug=${slug}`);
     const posts = await response.json();
 
     res.writeHead(200, {

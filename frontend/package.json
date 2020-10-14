@@ -6,6 +6,9 @@
     "dev": "sapper dev",
     "build": "sapper build",
     "export": "sapper export",
+    "dev": "MODE=dev sapper dev",
+    "build": "MODE=build sapper build",
+    "export": "MODE=export sapper export",
     "start": "node __sapper__/build"
   },
   "dependencies": {
