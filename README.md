@@ -27,6 +27,9 @@ cd frontend
 npm install
 ```
 
+Before starting your frontend-server, make sure to create an `.env` file in
+your frontend folder. You can use the provided `.env.example` for that.
+
 Then run `npm run dev` to start your frontend server.
 
 ### Backend
