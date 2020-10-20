@@ -41,7 +41,7 @@
 </ul>
 
 <script context="module">
-    export async function preload() {
+    export async function preload({path}) {
         const res = await this.fetch('articles/index.json');
         const data = await res.json();
 
