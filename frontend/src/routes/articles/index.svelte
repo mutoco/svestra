@@ -3,15 +3,17 @@
 </script>
 
 <style>
+    :global(main) {
+        padding: 2rem;
+    }
     ul, p {
+        padding: 0;
         margin: 0 0 1em 0;
         line-height: 1.5;
+        list-style: none;
     }
     li {
         max-width: 33.333%;
-    }
-    .main-title {
-        font-size: 25px;
     }
 </style>
 
@@ -23,19 +25,22 @@
 
 <ul>
     {#each articles as article}
-        <!-- {console.log(article)} -->
         <li>
-            <a class="main-title" rel='prefetch' href='articles/{article.slug}'>
-                {article.title}
-                <!-- {process.env.BACKEND_URL} -->
-                {#if article.media}
-                    <img src="{process.env.STRAPI_API_URL}{article.media.url}" alt="{article.title}">
-                {/if}
+            <a rel='prefetch' href='articles/{article.slug}'>
+                <article>
+                    <h2>
+                        {article.title}
+                    </h2>
+                    <!-- {process.env.BACKEND_URL} -->
+                    {#if article.media}
+                        <img src="{process.env.STRAPI_API_URL}{article.media.url}" alt="{article.title}">
+                    {/if}
+                </article>
             </a>
         </li>
         {#if article.author}
             <p>
-                {article.published_at} by {article.author.username}
+                {article.published_at ? article.published_at : 'DRAFT'} by {article.author.username}
             </p>
         {/if}
     {/each}

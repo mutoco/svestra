@@ -3,51 +3,42 @@
 </script>
 
 <style>
-    .content :global(h2) {
-        font-size: 1.4em;
-        font-weight: 500;
-    }
-
-    .content :global(pre) {
-        background-color: #f9f9f9;
-        box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.05);
-        padding: 0.5em;
-        border-radius: 2px;
-        overflow-x: auto;
-    }
-
-    .content :global(pre) :global(code) {
-        background-color: transparent;
-        padding: 0;
-    }
-
-    .content :global(ul) {
-        line-height: 1.5;
-    }
-
-    .content :global(li) {
-        margin: 0 0 0.5em 0;
-    }
+  img, video {
+    max-width: 33.333%;
+  }
 </style>
 
 <svelte:head>
   <title>an amazing article</title>
 </svelte:head>
 
+
 {#each articles as article}
-  <h2>{article.title}</h2>
+  
+  <!-- {console.log(article)} -->
+
+  <h1>
+    {article.title}
+  </h1>
+  {#if article.lead}
+    <h2>
+      {article.lead}
+    </h2>
+  {/if}
   {#if article.author}
-    <h3>{article.published} by {article.author.username}</h3>
+    <p>{article.published_at ? article.published_at : 'DRAFT'} by {article.author.username}</p>
   {/if}
   {#if article.media}
     <img src="{process.env.STRAPI_API_URL}{article.media.url}" alt="{article.title}">
   {/if}
-  <div class='content'>
-    {@html article.content}
-  </div>
+  {#if article.media}
+    <div class='richtext'>
+      {@html article.richtext}
+    </div> 
+  {/if}
 {/each}
 
-<p>⇺<a href="articles"> back to articles</a></p>
+<p><a href="articles"> back to articles</a></p>
 
 <script context="module">
     export async function preload({path}) {

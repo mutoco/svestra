@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import marked from 'marked'
 
 const STAGE = process.env.SAPPER_MODE === 'export' ? 'live' : 'preview';
 
@@ -22,10 +23,14 @@ export async function get(req, res) {
       headers.append('Authorization', `Bearer ${req.session.token}`);
     }
     const response = await fetch(backendUrl, {headers});
-    const articles = await response.json();
+    let articles = await response.json();
 
     res.writeHead(response.ok ? 200 : response.status, {
       'Content-Type': 'application/json'
+    });
+
+    articles.forEach(article => {
+      if(article.richtext) article.richtext = marked(article.richtext);
     });
 
     res.end(JSON.stringify({articles}));
