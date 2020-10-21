@@ -17,7 +17,7 @@
     "lead": {
       "type": "text"
     },
-    "richtext": {
+    "richtext_md": {
       "type": "richtext"
     },
     "media": {

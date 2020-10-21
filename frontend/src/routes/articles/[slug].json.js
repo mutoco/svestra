@@ -3,6 +3,22 @@ import marked from 'marked'
 
 const STAGE = process.env.SAPPER_MODE === 'export' ? 'live' : 'preview';
 
+const parseMarkdown = (obj) => {
+  if (Array.isArray(obj)) {
+    return obj.map(parseMarkdown);
+  }
+  if (obj instanceof Object) {
+    return Object.keys(obj).reduce((accum, key) => {
+      if (key.endsWith('_md') && typeof obj[key] === 'string') {
+        accum[key] = marked(obj[key]);
+      } else {
+        accum[key] = parseMarkdown(obj[key]);
+      }
+      return accum;
+    }, {});
+  }
+  return obj;
+}
 
 export async function get(req, res) {
   const backendUrl = new URL(`${process.env.STRAPI_API_URL}/articles`);
@@ -29,11 +45,7 @@ export async function get(req, res) {
       'Content-Type': 'application/json'
     });
 
-    articles.forEach(article => {
-      if(article.richtext) article.richtext = marked(article.richtext);
-    });
-
-    res.end(JSON.stringify({articles}));
+    res.end(JSON.stringify(parseMarkdown(articles)));
   }
   catch (e) {
     res.writeHead(500, {
