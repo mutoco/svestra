@@ -1,10 +1,10 @@
 import ApolloClient, {gql} from 'apollo-boost';
 import fetch from 'node-fetch';
 
-// Query all blog-posts (preview mode showing drafts. LIVE is for production)
-const GET_BLOGPOSTS = gql`
-query Posts {  
-  posts (publicationState: PREVIEW) {
+// Query all blog-articles (preview mode showing drafts. LIVE is for production)
+const GET_ARTICLES = gql`
+query articles {  
+  articles (publicationState: PREVIEW) {
     id
     title
     published_at
@@ -31,10 +31,10 @@ query Posts {
 }
 `;
 
-// Query a single blog post
-const GET_BLOGPOST = gql`
-query Posts($slug: String!) {
-  posts: posts(where: { slug: $slug }) {
+// Query a single blog article
+const GET_ARTICLE = gql`
+query articles($slug: String!) {
+  articles: articles(where: { slug: $slug }) {
     id
     title
     published_at
@@ -58,7 +58,7 @@ export async function get(req, res) {
 
   try {
     const results = await client.query({
-      query: slug === 'index' ? GET_BLOGPOSTS : GET_BLOGPOST,
+      query: slug === 'index' ? GET_ARTICLES : GET_ARTICLE,
       variables: { slug }
     });
 
@@ -66,7 +66,7 @@ export async function get(req, res) {
       'Content-Type': 'application/json'
     });
 
-    res.end(JSON.stringify({posts: results.data.posts}));
+    res.end(JSON.stringify({articles: results.data.articles}));
   } catch (e) {
     res.writeHead(500, {
       'Content-Type': 'application/json'

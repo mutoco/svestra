@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "posts",
+  "collectionName": "articles",
   "info": {
-    "name": "Post",
+    "name": "Article",
     "description": ""
   },
   "options": {
@@ -12,11 +12,13 @@
   },
   "attributes": {
     "title": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "lead": {
       "type": "text"
+    },
+    "richtext": {
+      "type": "richtext"
     },
     "media": {
       "model": "file",
@@ -29,20 +31,18 @@
       "plugin": "upload",
       "required": false
     },
-    "content": {
-      "type": "richtext",
-      "required": false
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "private": false,
+      "required": true
     },
     "author": {
       "plugin": "users-permissions",
-      "model": "user"
+      "model": "user",
+      "via": "articles"
     },
-    "slug": {
-      "type": "uid",
-      "required": true,
-      "targetField": "title"
-    },
-    "Components": {
+    "components": {
       "type": "dynamiczone",
       "components": [
         "teaser.teaser-media"

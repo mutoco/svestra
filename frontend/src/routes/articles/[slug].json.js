@@ -4,7 +4,7 @@ const STAGE = process.env.SAPPER_MODE === 'export' ? 'live' : 'preview';
 
 
 export async function get(req, res) {
-  const backendUrl = new URL(`${process.env.STRAPI_API_URL}/posts`);
+  const backendUrl = new URL(`${process.env.STRAPI_API_URL}/articles`);
   backendUrl.searchParams.set('_publicationState', STAGE);
 
   if (STAGE === 'live') {
@@ -22,13 +22,13 @@ export async function get(req, res) {
       headers.append('Authorization', `Bearer ${req.session.token}`);
     }
     const response = await fetch(backendUrl, {headers});
-    const posts = await response.json();
+    const articles = await response.json();
 
     res.writeHead(response.ok ? 200 : response.status, {
       'Content-Type': 'application/json'
     });
 
-    res.end(JSON.stringify({posts}));
+    res.end(JSON.stringify({articles}));
   }
   catch (e) {
     res.writeHead(500, {

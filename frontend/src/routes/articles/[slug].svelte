@@ -1,5 +1,5 @@
 <script>
-  export let posts;
+  export let articles;
 </script>
 
 <style>
@@ -34,16 +34,16 @@
   <title>an amazing article</title>
 </svelte:head>
 
-{#each posts as post}
-  <h2>{post.title}</h2>
-  {#if post.author}
-    <h3>{post.published} by {post.author.username}</h3>
+{#each articles as article}
+  <h2>{article.title}</h2>
+  {#if article.author}
+    <h3>{article.published} by {article.author.username}</h3>
   {/if}
-  {#if post.media}
-    <img src="{process.env.STRAPI_API_URL}{post.media.url}" alt="{post.title}">
+  {#if article.media}
+    <img src="{process.env.STRAPI_API_URL}{article.media.url}" alt="{article.title}">
   {/if}
   <div class='content'>
-    {@html post.content}
+    {@html article.content}
   </div>
 {/each}
 

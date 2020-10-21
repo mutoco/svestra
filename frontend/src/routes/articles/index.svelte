@@ -1,5 +1,5 @@
 <script>
-    export let posts = [];
+    export let articles = [];
 </script>
 
 <style>
@@ -19,22 +19,23 @@
     <title>articles</title>
 </svelte:head>
 
-<h1>recent posts</h1>
+<h1>recent articles</h1>
 
 <ul>
-    {#each posts as post}
+    {#each articles as article}
+        <!-- {console.log(article)} -->
         <li>
-            <a class="main-title" rel='prefetch' href='articles/{post.slug}'>
-                {post.title}
+            <a class="main-title" rel='prefetch' href='articles/{article.slug}'>
+                {article.title}
                 <!-- {process.env.BACKEND_URL} -->
-                {#if post.media}
-                    <img src="{process.env.STRAPI_API_URL}{post.media.url}" alt="{post.title}">
+                {#if article.media}
+                    <img src="{process.env.STRAPI_API_URL}{article.media.url}" alt="{article.title}">
                 {/if}
             </a>
         </li>
-        {#if post.author}
+        {#if article.author}
             <p>
-                {post.published} by {post.author.username}
+                {article.published_at} by {article.author.username}
             </p>
         {/if}
     {/each}
