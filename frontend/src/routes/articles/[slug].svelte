@@ -31,9 +31,9 @@
   {#if article.media}
     <img src="{process.env.STRAPI_API_URL}{article.media.url}" alt="{article.title}">
   {/if}
-  {#if article.media}
+  {#if article.richtext_md}
     <div class='richtext'>
-      {@html article.richtext}
+      {@html article.richtext_md}
     </div> 
   {/if}
 {/each}

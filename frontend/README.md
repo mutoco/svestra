@@ -28,8 +28,8 @@ npm run dev
 - 🚧 Todo: `srcset` helpers
 
 ## Good to know & troubleshooting
-
-- 🚧 TODO: Will be documented soon. In the meantime, please be vocal over on the [Sapper issue tracker](https://github.com/sveltejs/sapper/issues).
+- All markdown fields with the suffix `_md` will be parsed automatically using a helper (src/_helpers/parse-markdown.js)
+- 🚧 TODO: Will add more documentation soon. In the meantime, please be vocal over on the [Sapper issue tracker](https://github.com/sveltejs/sapper/issues).
 
 ## Deployment
 
