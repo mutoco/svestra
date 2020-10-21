@@ -1,24 +1,7 @@
 import fetch from 'node-fetch';
-import marked from 'marked'
+import parseMarkdown from '../../_helpers/parse-markdown';
 
 const STAGE = process.env.SAPPER_MODE === 'export' ? 'live' : 'preview';
-
-const parseMarkdown = (obj) => {
-  if (Array.isArray(obj)) {
-    return obj.map(parseMarkdown);
-  }
-  if (obj instanceof Object) {
-    return Object.keys(obj).reduce((accum, key) => {
-      if (key.endsWith('_md') && typeof obj[key] === 'string') {
-        accum[key] = marked(obj[key]);
-      } else {
-        accum[key] = parseMarkdown(obj[key]);
-      }
-      return accum;
-    }, {});
-  }
-  return obj;
-}
 
 export async function get(req, res) {
   const backendUrl = new URL(`${process.env.STRAPI_API_URL}/articles`);
@@ -45,7 +28,7 @@ export async function get(req, res) {
       'Content-Type': 'application/json'
     });
 
-    res.end(JSON.stringify(parseMarkdown(articles)));
+    res.end(JSON.stringify({ articles: parseMarkdown(articles) }));
   }
   catch (e) {
     res.writeHead(500, {
