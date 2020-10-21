@@ -17,7 +17,7 @@ npm run develop
 - Example of owner policy based (auto assign author)
 - Example component called "teaser_media" added as [dynamic zones](https://strapi.io/blog/release-beta-18-dynamic-zones) to content-type "article"
 - Example settings to distinuish authenticated users from public ones.
-- TODO: Tokenization example to ensure, only authenticated users with token can access the API
+- 🚧 TODO: Tokenization example to ensure, only authenticated users with token can access the API
 
 ## Good to know & Troubleshooting
 
@@ -27,9 +27,9 @@ npm run develop
 
 ## Deployment
 
-- TODO: Instructions will be added soon. We think of a staging and a production environment based on .env variables.
+- 🚧 TODO: Instructions will be added soon. We think of a staging and a production environment based on .env variables.
 - In the meantime, check out Strapi [deployment guide](https://strapi.io/documentation/3.0.0-beta.x/getting-started/deployment.html).
 
 ## Svelte/Sapper Frontend
 
-You can use this Strapi setup totally independent from any Frontend stack. However, if you are interested in using it together with Svelte/Sapper, make sure you check out the [Svestra Frontend](https://github.com/mutoco/svestra/tree/master/frontend).
+You can use this Strapi setup totally independent from any Frontend stack. However, if you are interested in using it together with Svelte/Sapper, make sure you check out the [Svestra frontend](https://github.com/mutoco/svestra/tree/master/frontend).
