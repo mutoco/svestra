@@ -20,7 +20,7 @@ your frontend folder. You can use the provided `.env.example` for that.
 
 Then run `npm run dev` to start your frontend server.
 
-Checkout the [Svestra frontend README](https://github.com/mutoco/svestra/tree/master/frontend) for more information.
+Checkout the [Svestra frontend README](https://github.com/mutoco/svestra/tree/master/frontend) for more information and guidance.
 
 
 ### Backend
@@ -34,7 +34,7 @@ npm install
 
 Then run `npm run develop` to start your backend server.
 
-Checkout the [Svestra backend README](https://github.com/mutoco/svestra/tree/master/backend) for more information.
+Checkout the [Svestra backend README](https://github.com/mutoco/svestra/tree/master/backend) for more information and guidance.
 
 ## Contributing
 
