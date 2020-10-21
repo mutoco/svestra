@@ -1,29 +1,17 @@
 # Svestra
-A Svelte/Sapper + Strapi boilerplate with some neat features, helpers and more.
 
-## Features
-- Page prefetching
-- GraphQL first approach
-- SASS Support + some helpers & mixins
-- Todo: Typescript
-- Todo: SVG helpers
-- Todo: `srcset` helpers
-
-## Pages
-- A home page :`/`
-- An about page :`/about`
-- An articles page :`/articles`
-- A single article page :`/articles/:Slug`
+A Svelte/Sapper + Strapi boilerplate with some neat features, helpers, examples and more.
 
 ## Getting Started
+
 The project has two folders `frontend` for your Sapper frontend and `backend` for your Strapi backend.
 
 
 ### Frontend
+
 The frontend is built with Sapper. This sets up your frontend.
 ```bash
 cd frontend
-
 npm install
 ```
 
@@ -32,23 +20,21 @@ your frontend folder. You can use the provided `.env.example` for that.
 
 Then run `npm run dev` to start your frontend server.
 
+Checkout the [Svestra frontend README](https://github.com/mutoco/svestra/tree/master/frontend) for more information.
+
+
 ### Backend
+
 The backend is built with Strapi. This sets up your backend.
+
 ```bash
 cd backend
-
 npm install
 ```
 
 Then run `npm run develop` to start your backend server.
 
-
-## Deployment 
-
-You can deploy your frontend by following the Sapper [deployment guide](https://sapper.svelte.dev/docs/#Deployment).
-
-For your backend, Strapi has numerous options in it's [deployment guide](https://strapi.io/documentation/3.0.0-beta.x/getting-started/deployment.html).
-
+Checkout the [Svestra backend README](https://github.com/mutoco/svestra/tree/master/backend) for more information.
 
 ## Contributing
 
