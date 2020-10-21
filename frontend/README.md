@@ -28,6 +28,7 @@ npm run dev
 - 🚧 Todo: `srcset` helpers
 
 ## Good to know & troubleshooting
+- Note that we use lowercase keys in Strapi for fields of content-types e.g `title` but capitalized keys like `Title` for components. The current version of Strapi (3.2.3) fails if you combine components with content-type that have the same key. Make sure you take care of this difference in your frontend application.
 - All markdown fields with the suffix `_md` will be parsed automatically using a helper (src/_helpers/parse-markdown.js)
 - 🚧 TODO: Will add more documentation soon. In the meantime, please be vocal over on the [Sapper issue tracker](https://github.com/sveltejs/sapper/issues).
 
