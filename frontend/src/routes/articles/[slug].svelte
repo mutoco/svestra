@@ -26,8 +26,8 @@
   {#if article.author}
     <p>{article.published_at ? article.published_at : 'DRAFT'} by {article.author.username}</p>
   {/if}
-  {#if article.media}
-    <img src="{process.env.STRAPI_API_URL}{article.media.url}" alt="{article.title}">
+  {#if article.media_url}
+    <img src="{process.env.STRAPI_API_URL}{article.media_url}" alt="{article.title}">
   {/if}
   {#if article.richtext_md}
     <div class='richtext'>

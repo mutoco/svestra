@@ -47,6 +47,9 @@
       "components": [
         "teaser.teaser-media"
       ]
+    },
+    "media_url": {
+      "type": "string"
     }
   }
 }
