@@ -39,18 +39,10 @@
 <p><a href="articles"> back to all articles</a></p>
 
 <script context="module">
+    import loginCheck from '../../_helpers/login-check';
     export async function preload({path}) {
         const res = await this.fetch(`${path}.json`);
         const data = await res.json();
-
-        if (res.status === 200) {
-            return data;
-        } else if (res.status === 401) {
-            const params = new URLSearchParams();
-            params.set('redirect', path);
-            this.redirect(302, `/login?${params.toString()}`);
-        } else {
-            this.error(res.status, data.message);
-        }
+        return loginCheck.bind(this)(res, data, path);
     }
 </script>

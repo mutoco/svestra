@@ -1,5 +1,5 @@
 import fetchStrapi from '../../_helpers/fetch-strapi';
 
 export async function get(req, res) {
-  fetchStrapi(req, res, 'articles', 'collection');
+  fetchStrapi(req, res, 'about', 'single');
 }
