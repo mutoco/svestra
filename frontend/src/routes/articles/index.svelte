@@ -29,8 +29,9 @@
                         {article.title}
                     </h2>
                     <!-- {process.env.BACKEND_URL} -->
-                    {#if article.media}
-                        <img src="{process.env.STRAPI_API_URL}{article.media.url}" alt="{article.title}">
+                    {#if article.media_url}
+                        <!-- <img src="{process.env.STRAPI_API_URL}{article.media}" alt="{article.title}"> -->
+                        <img src="{article.media_url}" alt="{article.title}">
                     {/if}
                 </article>
             </a>
