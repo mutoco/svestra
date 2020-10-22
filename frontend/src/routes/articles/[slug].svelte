@@ -1,5 +1,5 @@
 <script>
-  export let articles;
+  export let content;
 </script>
 
 <style>
@@ -10,10 +10,10 @@
 
 
 <svelte:head>
-  <title>{articles[0].title}</title>
+  <title>{content[0].title}</title>
 </svelte:head>
 
-{#each articles as article}
+{#each content as article}
 
   <h1>
     {article.title}
