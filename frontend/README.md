@@ -8,8 +8,16 @@ Open your terminal, navigate to this folder and type:
 
 ```bash
 npm install
-npm run dev
 ```
+
+Before starting your frontend-server, make sure to create an `.env` file in
+your frontend folder. You can use the provided `.env.example` for that.
+
+Then run `npm run dev` to start your frontend server.
+
+### Authentication
+
+We don't want, that our Strapi API is publicly available. That's why you'll see a login screen first if you run this Sapper application. If you are using Strapi with our database dump, you can use the Editors credentials to login in on the frontend side. Make sure you checkout the [Svestra backend README.](https://github.com/mutoco/svestra/tree/master/backend)
 
 ## Examples & features
 
@@ -20,10 +28,11 @@ npm run dev
 - Example about page:`/about` (fetching from corresponding Strapi single type)
 - Example articles page:`/articles` (fetching from corresponding Strapi collection type)
 - Example of single article page:`/articles/:Slug` (fetching from corresponding Strapi article slug)
-- Login-screen if user is not authenticated (and therefore not allowed to read API)
+- Login-check (/src/_helpers) if user is not authenticated (and therefore not allowed to read API)
+- Strapi-fetching helpers (/src/_helpers)
 
 - 🚧 TODO: Deployment setup and documentation
-- 🚧 TODO: Typescript
+- 🚧 TODO: Typescript support
 - 🚧 TODO: SVG helpers
 - 🚧 TODO: `srcset` helpers
 - 🚧 TODO: Add example for i18n (fetching from Strapi)

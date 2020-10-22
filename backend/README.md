@@ -8,19 +8,39 @@ Open your terminal, navigate to this folder and type:
 
 ```bash
 npm install
-npm run develop
 ```
+
+### Start plain or use our database dump file.
+If you'd like to start with a plain, empty Strapi you can now just run `npm run develop`. 
+But if you'd like to start based on our database dump (with basic settings, roles, users and some content-types.) follow these steps:
+
+Within your `backend` folder type:
+
+```bash
+cat db-dump.sql | sqlite3 ./tmp/data.db
+```
+
+This imports the dump to the `tmp` folder of your Strapi instance.
+We've created two users for you. An `admin` and an `editor` with the following credentials to login:
+
+Username: admin@email.com
+Password: 1234
+
+Username: editor@email.com
+Password 1234
 
 ## Examples & features
 
-- Example single-type for "home" and "about
-- Example collection-type called "article"
-- Example of owner policy based (auto assign author)
-- Example component called "teaser_media" added as [dynamic zones](https://strapi.io/blog/release-beta-18-dynamic-zones) to content-type "article"
-- Example settings to distinuish authenticated users from public ones.
-- 🚧 TODO: Tokenization example to ensure, only authenticated users with token can access the API
+- Database dump provided with basic settings, roles, users and content-types.
+    - Example settings to distinuish authenticated users from public ones.
+    - Example token-setup to give other applications access to the API (e.g. a build pipeline that needs access like an authenticated user)
+    - Example single-type for "home" and "about
+    - Example collection-type called "article"
+    - Example component called "teaser_media" added as [dynamic zones](https://strapi.io/blog/release-beta-18-dynamic-zones) to content-type "article"
+    - Example of owner policy based (auto assign author)
 - 🚧 TODO: Add example for i18n
-- 🚧 TODO: Backup-mechanism if editors fuck up the page?
+- 🚧 TODO: Clean up database. There are probably a lot of testing/unused stuff we should ditch. Maybe Strapi will be able to handle this automatically in an upcoming release. Otherwise, we'll recreate a clean database and renew the dump file.
+- 🚧 TODO: Maybe we should build a backup-mechanism if editors fuck up something?
 
 ## Good to know & Troubleshooting
 - Make sure you use lowercase keys for fields of content-types e.g `title` but capitalized keys like `Title` for components. The current version of Strapi (3.2.3) fails if you combine components with content-type that have the same key. On the other hand, you can easily use `Title` in every component you create and place them using dynamic zones. So a prefix related to content-type or component is not needed.

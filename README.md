@@ -32,7 +32,7 @@ cd backend
 npm install
 ```
 
-Then run `npm run develop` to start your backend server.
+You can either start with a plain instance of Strapi by running `npm run develop` or you can use import our [database dump](https://github.com/mutoco/svestra/tree/master/backend) file with helpful settings, roles, users and some content-types to get started.
 
 Checkout the [Svestra backend README](https://github.com/mutoco/svestra/tree/master/backend) for more information and guidance.
 
