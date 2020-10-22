@@ -1,20 +1,23 @@
 import fetch from 'node-fetch';
-import parseMarkdown from '../../_helpers/parse-markdown';
+import parseMarkdown from './parse-markdown';
 
 const STAGE = process.env.SAPPER_MODE === 'export' ? 'live' : 'preview';
 
-export async function get(req, res) {
-  const backendUrl = new URL(`${process.env.STRAPI_API_URL}/about`);
+export default async function fetchStrapi(req, res, route, contenttype) {
+  const backendUrl = new URL(`${process.env.STRAPI_API_URL}/${route}`);
   backendUrl.searchParams.set('_publicationState', STAGE);
 
   if (STAGE === 'live') {
     backendUrl.searchParams.set('token', process.env.EXPORT_API_TOKEN);
   }
-
+  
   const {slug} = req.params;
+  
   try {
-    if (slug !== 'index') {
-      backendUrl.searchParams.set('slug', slug);
+    if (contenttype === 'collection') {
+        if (slug !== 'index') {
+          backendUrl.searchParams.set('slug', slug);
+        }
     }
     const headers = new fetch.Headers();
 
