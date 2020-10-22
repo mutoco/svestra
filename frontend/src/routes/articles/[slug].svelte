@@ -35,6 +35,7 @@
       {@html article.richtext_md}
     </div> 
   {/if}
+  {console.log(article.components[0].__component)}
 {/each}
 
 <p><a href="articles"> back to all articles</a></p>

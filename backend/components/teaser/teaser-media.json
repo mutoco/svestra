@@ -2,7 +2,8 @@
   "collectionName": "components_teaser_teaser_medias",
   "info": {
     "name": "Teaser media",
-    "icon": "bullhorn"
+    "icon": "bullhorn",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -24,6 +25,9 @@
       "type": "string"
     },
     "Lead": {
+      "type": "string"
+    },
+    "Media_url": {
       "type": "string"
     }
   }
