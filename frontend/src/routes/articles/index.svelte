@@ -3,9 +3,6 @@
 </script>
 
 <style>
-    :global(main) {
-        padding: 2rem;
-    }
     ul, p {
         padding: 0;
         margin: 0 0 1em 0;
@@ -21,7 +18,7 @@
     <title>articles</title>
 </svelte:head>
 
-<h1>recent articles</h1>
+<h1>Articles</h1>
 
 <ul>
     {#each articles as article}

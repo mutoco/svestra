@@ -78,6 +78,10 @@ img, video {
 	max-width: 100%;
 }
 
+main {
+	padding: 2rem;
+}
+
 ::selection {
 	background: $c-green;
 	color: $c-light;

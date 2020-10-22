@@ -1,7 +1,7 @@
 import ApolloClient, {gql} from 'apollo-boost';
 import fetch from 'node-fetch';
 
-// Query all blog-articles (preview mode showing drafts. LIVE is for production)
+// Query all blog-articles (PREVIEW mode showing drafts. LIVE is for production)
 const GET_ARTICLES = gql`
 query articles {  
   articles (publicationState: PREVIEW) {

@@ -13,11 +13,14 @@ npm run develop
 
 ## Examples & features
 
-- Example content-type called "article"
+- Example single-type for "home" and "about
+- Example collection-type called "article"
 - Example of owner policy based (auto assign author)
 - Example component called "teaser_media" added as [dynamic zones](https://strapi.io/blog/release-beta-18-dynamic-zones) to content-type "article"
 - Example settings to distinuish authenticated users from public ones.
 - 🚧 TODO: Tokenization example to ensure, only authenticated users with token can access the API
+- 🚧 TODO: Add example for i18n
+- 🚧 TODO: Backup-mechanism if editors fuck up the page?
 
 ## Good to know & Troubleshooting
 - Make sure you use lowercase keys for fields of content-types e.g `title` but capitalized keys like `Title` for components. The current version of Strapi (3.2.3) fails if you combine components with content-type that have the same key. On the other hand, you can easily use `Title` in every component you create and place them using dynamic zones. So a prefix related to content-type or component is not needed.

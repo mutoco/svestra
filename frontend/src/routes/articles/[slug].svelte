@@ -3,19 +3,17 @@
 </script>
 
 <style>
-  img, video {
+  img {
     max-width: 33.333%;
   }
 </style>
 
+
 <svelte:head>
-  <title>an amazing article</title>
+  <title>{articles[0].title}</title>
 </svelte:head>
 
-
 {#each articles as article}
-  
-  <!-- {console.log(article)} -->
 
   <h1>
     {article.title}
@@ -38,7 +36,7 @@
   {/if}
 {/each}
 
-<p><a href="articles"> back to articles</a></p>
+<p><a href="articles"> back to all articles</a></p>
 
 <script context="module">
     export async function preload({path}) {
