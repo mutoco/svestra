@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_general_link_relations",
+  "info": {
+    "name": "Link Relation",
+    "icon": "link",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Link_to_article": {
+      "model": "article"
+    },
+    "Link_to_page": {
+      "type": "string"
+    }
+  }
+}

@@ -29,6 +29,11 @@
     },
     "Media_url": {
       "type": "string"
+    },
+    "Link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.link-relation"
     }
   }
 }

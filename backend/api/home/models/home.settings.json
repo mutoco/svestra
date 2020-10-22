@@ -15,7 +15,8 @@
       "type": "string"
     },
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "targetField": "title"
     },
     "richtext_md": {
       "type": "richtext"

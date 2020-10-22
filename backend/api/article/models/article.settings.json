@@ -31,6 +31,9 @@
       "plugin": "upload",
       "required": false
     },
+    "media_url": {
+      "type": "string"
+    },
     "slug": {
       "type": "uid",
       "targetField": "title",
@@ -45,11 +48,10 @@
     "components": {
       "type": "dynamiczone",
       "components": [
-        "teaser.teaser-media"
+        "teaser.teaser-media",
+        "teaser.teaser-text",
+        "general.link-relation"
       ]
-    },
-    "media_url": {
-      "type": "string"
     }
   }
 }

@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_teaser_teaser_texts",
+  "info": {
+    "name": "Teaser Text",
+    "icon": "align-left"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Lead": {
+      "type": "string"
+    },
+    "Date": {
+      "type": "date"
+    },
+    "Link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.link-relation"
+    }
+  }
+}
