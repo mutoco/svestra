@@ -21,13 +21,26 @@ cat db-dump.sql | sqlite3 ./tmp/data.db
 ```
 
 This imports the dump to the `tmp` folder of your Strapi instance.
-We've created two users for you. An `admin` and an `editor` with the following credentials to login:
 
+
+### Authentication
+There are two types of users. The ones that have access to the Strapi Admin panel. And the ones that can create content or read the API.
+
+We've created two admin-panel-users for you. An `admin` and an `editor` with the following credentials to login:
+
+#### Admin Panel User
 Username: admin@email.com
-Password: 1234
+Password: Admin1234
 
 Username: editor@email.com
-Password 1234
+Password Editor1234
+
+
+#### API User
+And we've created one entry in the `user` collection called `editor` to be able to set it as an author and to use it as an authenticated user to read data from the API.
+
+Username: editor@email.com
+Password Editor1234
 
 ## Examples & features
 
