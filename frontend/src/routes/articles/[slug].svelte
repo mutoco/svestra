@@ -1,4 +1,5 @@
 <script>
+	import ContentBlocks from '../../components/ContentBlocks/ContentBlocks.svelte';
   export let content;
 </script>
 
@@ -36,7 +37,8 @@
     </div> 
   {/if}
   {#if article.components}
-    {console.log(article)}
+    <!-- {console.log(article)} -->
+    <ContentBlocks blocks={article.components}></ContentBlocks>
   {/if}
 
 {/each}

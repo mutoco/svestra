@@ -16,10 +16,6 @@
     "Date": {
       "type": "date"
     },
-    "Component_name": {
-      "type": "string",
-      "default": "TeaserText"
-    },
     "Link": {
       "type": "component",
       "repeatable": false,
