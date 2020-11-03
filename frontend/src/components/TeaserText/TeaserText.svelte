@@ -1,10 +1,9 @@
 <script>
     export let id;
     export let Title;
-    export let Media_url;
-    export let Label;
+    export let Lead;
+    export let Date;
     export let Link;
-    export let Media;
 </script>
 
 <h1>Hello i'm the TeaserText component</h1>
@@ -12,8 +11,7 @@
 <p>
     {id}
     {Title}
-    {Media_url}
-    {Label}
+    {Lead}
+    {Date}
     {Link}
-    {Media}
 </p>

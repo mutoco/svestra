@@ -1,6 +1,7 @@
 <script>
     export let id;
     export let Title;
+    export let Lead;
     export let Media_url;
     export let Label;
     export let Link;
@@ -13,6 +14,7 @@
 <p>
     {id}
     {Title}
+    {Lead}
     {Media_url}
     {Label}
     {Link}
