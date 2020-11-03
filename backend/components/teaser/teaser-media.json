@@ -21,14 +21,18 @@
       "plugin": "upload",
       "required": false
     },
+    "Media_url": {
+      "type": "string"
+    },
     "Label": {
       "type": "string"
     },
     "Lead": {
       "type": "string"
     },
-    "Media_url": {
-      "type": "string"
+    "Component_name": {
+      "type": "string",
+      "default": "TeaserMedia"
     },
     "Link": {
       "type": "component",

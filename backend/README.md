@@ -20,7 +20,12 @@ Within your `backend` folder type:
 cat db-dump.sql | sqlite3 ./tmp/data.db
 ```
 
-This imports the dump to the `tmp` folder of your Strapi instance.
+This imports the dump to the `tmp` folder of your Strapi instance. 
+If you made changes to the database you'd like to share with other devs, you can generate/update the `db-dump.sql` file using the following command:
+
+```bash
+sqlite3 .tmp/data.db .dump > db-dump.sql
+```
 
 
 ### Authentication
@@ -61,6 +66,14 @@ Password Editor1234
 - ⚠️ Important note if you are using the Svestra frontend: Add the suffix `_md` to every field that can have markdown (e.g. richtext fields). On the frontend-side we parse markdown to HTML using a helper (src/_helpers/parse-markdown.js)
 - In the current version of Strapi (3.2.3) the media library breaks if you delete a content-type that contains entries with media fields. Check this issue on [https://github.com/strapi/strapi/issues/6347](Github) to avoid/resolve it.
 - Strapi may have problems if you rename a content-type. Beware that this could cause a lost of all your entries!
+
+## Dealing with nested components (dynamic zones)
+Right now, Strapi seems to have an issue where you don't get the `__component` property in the REST API if you nest components inside eachother. This is a big problem if you heavily rely on dynamic layouts because you'll not be able to determine the right component to show. That's why this setup offers a basic workaround.
+1. When creating a component in the Strapi admin, make sure you add a string-filed called `Component_name` (We use uppercase for component properties and lowercase for content-types to avoid conflicts, which is another ongoing Strapi issue)
+2. Under "Advanced settings" add the name of the component to this field as a default value. E.g. `TeaserMedia`
+3. Save it and then click on "Configure the view"
+4. Remove the `Component_name` field from "Displayed fields" - We don't want to show that field to editors or let them mess up things.
+5. The new field and its default value should now be accessible in the REST API.
 
 ## Deployment
 
